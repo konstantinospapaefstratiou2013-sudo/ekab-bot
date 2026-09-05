@@ -4,7 +4,6 @@ import discord
 from discord.ext import commands
 import os
 
-# Web Server για να μένει ανοιχτό στο Render (Free)
 app = Flask('')
 
 @app.route('/')
@@ -12,7 +11,8 @@ def home():
     return "Bot is online!"
 
 def run():
-    app.run(host='0.0.0.0', port=8080)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
 
 def keep_alive():
     t = Thread(target=run)
@@ -139,6 +139,5 @@ async def setup_absences(ctx):
 async def setup_duty(ctx):
     await ctx.send(embed=discord.Embed(title="⏱️ Σύστημα Υπηρεσίας", color=discord.Color.blue()), view=DutyView())
 
-# Εκκίνηση keep-alive σε thread και κανονική εκκίνηση του bot στην κύρια ροή
 keep_alive()
 bot.run(os.getenv("DISCORD_TOKEN"))
