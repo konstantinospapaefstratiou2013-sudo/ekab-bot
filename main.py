@@ -139,4 +139,6 @@ async def setup_absences(ctx):
 async def setup_duty(ctx):
     await ctx.send(embed=discord.Embed(title="⏱️ Σύστημα Υπηρεσίας", color=discord.Color.blue()), view=DutyView())
 
-bot.run(os.getenv("DISCORD_TOKEN"))
+if __name__ == "__main__":
+    keep_alive()
+    bot.run(os.getenv("DISCORD_TOKEN"))
