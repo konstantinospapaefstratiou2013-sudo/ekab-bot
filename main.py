@@ -141,4 +141,4 @@ async def setup_duty(ctx):
 
 # Εκκίνηση Web Server και Bot με ασφαλή ανάγνωση Token
 keep_alive()
-bot.run(os.getenv("MTU0NTU3NjIzNjE4MzU4ODkzNA.GRUKgO.Enzu1UokiE78sZrj18ARcL_oYzsljg4EZnczQI"))
+bot.run(os.getenv("DISCORD_TOKEN"))
